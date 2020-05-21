@@ -7,8 +7,6 @@
 
 	"sensors.sensor_illumination|block": "光敏传感器 |模拟值读取引脚 %pin"
 	
-	
-	"sensors|block": "RGB超声波",
 	"sensors.Ultrasonic|block": "读取RGB超声波距离|引脚 %pin|cm",
     "RgbColors.Red|block": "红",
     "RgbColors.Orange|block": "橙",
