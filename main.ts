@@ -106,14 +106,13 @@ namespace sensors {
 
 
 
-
-
-
+    
 
     /**
      * RGB超声波
      */
-    const LED0_ON_L = 0x06
+
+	const LED0_ON_L = 0x06
 	const LED0_ON_H = 0x07
 	const LED0_OFF_L = 0x08
 	const LED0_OFF_H = 0x09
@@ -136,8 +135,8 @@ namespace sensors {
 	/**
 	 * Get RUS04 distance
 	 * @param pin Microbit ultrasonic pin; eg: P2
-	*/ 
-	//% blockId=motorbit_ultrasonic block="Read RgbUltrasonic Distance|pin %pin|cm"  group="RGB超声波"
+	*/
+	//% blockId=motorbit_ultrasonic block="Read RgbUltrasonic Distance|pin %pin|cm"
 	//% weight=76
 	export function Ultrasonic(pin: DigitalPin): number {
 		return UltrasonicVer(pin, SonarVersion.V1);
@@ -178,7 +177,7 @@ namespace sensors {
 		neoStrip.show();
 	}
 
-	//% blockId="motorbit_rus04" block="part %index|show color %rgb|effect %effect|rgbpin %pin"  group="RGB超声波"
+	//% blockId="motorbit_rus04" block="part %index|show color %rgb|effect %effect|rgbpin %pin"
 	//% weight=75
 	export function RUS_04(index: RgbUltrasonics, rgb: RgbColors, effect: ColorEffect,pin:DigitalPin): void {
 		let start, end;
@@ -257,6 +256,12 @@ namespace sensors {
 			break;
 		}
 	}
+
+
+
+
+
+
 
 
 }

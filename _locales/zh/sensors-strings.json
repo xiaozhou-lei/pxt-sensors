@@ -5,7 +5,7 @@
 	
 	"sensors.sensor_flame|block": "火焰传感器 |数字值读取引脚 %pin",
 
-	"sensors.sensor_illumination|block": "光敏传感器 |模拟值读取引脚 %pin"
+	"sensors.sensor_illumination|block": "光敏传感器 |模拟值读取引脚 %pin",
 	
 	"sensors.Ultrasonic|block": "读取RGB超声波距离|引脚 %pin|cm",
     "RgbColors.Red|block": "红",
