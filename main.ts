@@ -1,7 +1,7 @@
 
 
 
-//% color="#FFA500" weight=10 icon="\uf46a" block="sensors"
+//% color="#FFA500" weight=10 icon="\uf2c9" block="sensors"
 namespace sensors {
 	
 	
