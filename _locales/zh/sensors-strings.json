@@ -5,7 +5,28 @@
 	
 	"sensors.sensor_flame|block": "火焰传感器 |数字值读取引脚 %pin",
 
-	"sensors.sensor_illumination|block": "光敏传感器 |模拟值读取引脚 %pin"
+	"sensors.sensor_illumination|block": "光敏传感器 |模拟值读取引脚 %pin",
+	
+	
+	"sensors.Ultrasonic|block": "读取RGB超声波距离|引脚 %pin|cm",
+    "RgbColors.Red|block": "红",
+    "RgbColors.Orange|block": "橙",
+    "RgbColors.Yellow|block": "黄",
+    "RgbColors.Green|block": "绿",
+    "RgbColors.Blue|block": "蓝",
+    "RgbColors.Indigo|block": "靛蓝",
+    "RgbColors.Violet|block": "紫罗兰",
+    "RgbColors.Ourple|block": "紫",
+    "RgbColors.White|block": "白",
+    "RgbColors.Black|block": "黑",
+    "RgbUltrasonics.Left|block": "左边",
+    "RgbUltrasonics.Right|block": "右边",
+    "RgbUltrasonics.All|block": "全部",
+    "ColorEffect.None|block": "无",
+    "ColorEffect.Breathing|block": "呼吸灯",
+    "ColorEffect.Rotate|block": "旋转流星",
+    "ColorEffect.Flash|block": "闪烁",
+    "sensors.RUS_04|block": "选择彩灯 %index|选择颜色 %rgb|选择效果 %effect|选择引脚 %pin"
 	
 
 }
