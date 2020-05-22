@@ -17,6 +17,15 @@
 
     "sensors.sensor_soilMoisture|block": "土壤湿度传感器 |模拟值读取引脚 %pin",
 	
+	"sensors.sensor_sound_pin|block": "声音传感器初始化 |数字读取引脚 %DR|模拟读取引脚 %AR",
+	"sensors.sensor_sound_analogread|block": "读取到的模拟值",
+	"sensors.sensor_sound_digitalread|block": "读取到的数字值",
+	
+	"sensors.sensor_rain_pin|block": "雨滴传感器初始化 |数字读取引脚 %DR|模拟读取引脚 %AR",
+	"sensors.sensor_rain_analogread|block": "读取到的模拟值",
+	"sensors.sensor_rain_digitalread|block": "读取到的数字值",
+	
+	
 	
 	"sensors.Ultrasonic|block": "读取RGB超声波距离|引脚 %pin|cm",
     "RgbColors.Red|block": "红",

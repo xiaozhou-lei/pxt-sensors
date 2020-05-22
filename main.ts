@@ -190,7 +190,83 @@ namespace sensors {
         return pins.analogReadPin(pin)
         
     }
+	    	    
+
+
+
+
+    
+
+    /**
+     * 声音传感器
+     */
+    
+    let _DR = 0
+    let _AR = 0
+    
+    //% blockId=sensor_sound_pin block="sensor_sound_pin |digital pin %DR|analog pin %AR" blockExternalInputs=false  group="声音传感器"
+    //% weight=70
+    export function sensor_sound_pin(DR: DigitalPin, AR: AnalogPin): void {
+        
+        _DR = DR
+        _AR = AR
+    }
+
+    //% blockId=sensor_sound_analogread  block="sensor_sound_analogread"  blockExternalInputs=false  group="声音传感器"
+    //% weight=70
+    export function sensor_sound_analogread(): number {
+
+            return pins.analogReadPin(_AR)
+
+    }
 	
+	//% blockId=sensor_sound_digitalread  block="sensor_sound_digitalread"  blockExternalInputs=false  group="声音传感器"
+    //% weight=70
+    export function sensor_sound_digitalread(): number {
+
+            return pins.digitalReadPin(_DR)
+
+    }
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	/**
+     * 雨滴传感器
+     */
+    
+    let _DRS = 0
+    let _ARS = 0
+    
+    //% blockId=sensor_rain_pin block="sensor_rain_pin |digital pin %DRS|analog pin %ARS" blockExternalInputs=false  group="雨滴传感器"
+    //% weight=70
+    export function sensor_rain_pin(DRS: DigitalPin, ARS: AnalogPin): void {
+        
+        _DRS = DRS
+        _ARS = ARS
+    }
+
+    //% blockId=sensor_rain_analogread  block="sensor_rain_analogread"  blockExternalInputs=false  group="雨滴传感器"
+    //% weight=70
+    export function sensor_rain_analogread(): number {
+
+            return pins.analogReadPin(_ARS)
+
+    }
+	
+	//% blockId=sensor_rain_digitalread  block="sensor_rain_digitalread"  blockExternalInputs=false  group="雨滴传感器"
+    //% weight=70
+    export function sensor_rain_digitalread(): number {
+
+            return pins.digitalReadPin(_DRS)
+
+    }
 	
 	
 	
