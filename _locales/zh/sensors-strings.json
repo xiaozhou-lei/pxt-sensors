@@ -3,9 +3,19 @@
 
 	"sensors.sensor_temperature|block": "温度传感器 |模拟值读取引脚 %pin",
 	
-	"sensors.sensor_flame|block": "火焰传感器 |数字值读取引脚 %pin",
+    "sensors.sensor_flame|block": "火焰传感器 |数字值读取引脚 %pin",
+    
+    "sensors.sensor_infraredTracking|block": "红外寻迹传感器 |数字值读取引脚 %pin",
 
-	"sensors.sensor_illumination|block": "光敏传感器 |模拟值读取引脚 %pin",
+    "sensors.sensor_incline|block": "倾斜传感器 |数字值读取引脚 %pin",
+
+    "sensors.sensor_illumination|block": "光敏传感器 |模拟值读取引脚 %pin",
+    
+    "sensors.sensor_thermosensitive|block": "热敏传感器 |模拟值读取引脚 %pin",
+
+    "sensors.sensor_waterLevel|block": "水位传感器 |模拟值读取引脚 %pin",
+
+    "sensors.sensor_soilMoisture|block": "土壤湿度传感器 |模拟值读取引脚 %pin",
 	
 	
 	"sensors.Ultrasonic|block": "读取RGB超声波距离|引脚 %pin|cm",

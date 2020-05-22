@@ -78,7 +78,46 @@ namespace sensors {
         return pins.digitalReadPin(pin)
         
     }
+    
 
+
+
+
+
+
+
+
+    /**
+     * 红外寻迹
+     */
+    
+    //% blockId=sensor_infraredTracking block="sensor_infraredTracking pin |digitalpin %pin" blockExternalInputs=false  group="红外寻迹传感器"
+    //% weight=70
+    export function sensor_infraredTracking(pin: DigitalPin): number {
+
+        return pins.digitalReadPin(pin)
+        
+    }
+    
+
+
+
+
+
+
+
+
+    /**
+     * 倾斜传感器
+     */
+    
+    //% blockId=sensor_incline block="sensor_incline pin |digitalpin %pin" blockExternalInputs=false  group="倾斜传感器"
+    //% weight=70
+    export function sensor_incline(pin: DigitalPin): number {
+
+        return pins.digitalReadPin(pin)
+        
+    }
 
 
 
@@ -97,7 +136,60 @@ namespace sensors {
         return pins.analogReadPin(pin)
         
     }
-	
+    
+
+
+
+
+    
+
+    /**
+     * 热敏传感器
+     */
+    
+    //% blockId=sensor_thermosensitive block="sensor_thermosensitive pin |analogpin %pin" blockExternalInputs=false  group="热敏传感器"
+    //% weight=70
+    export function sensor_thermosensitive (pin: AnalogPin): number {
+
+        return pins.analogReadPin(pin)
+        
+    }
+	    
+
+
+
+
+    
+
+    /**
+     * 水位传感器
+     */
+    
+    //% blockId=sensor_waterLevel block="sensor_waterLevel pin |analogpin %pin" blockExternalInputs=false  group="水位传感器"
+    //% weight=70
+    export function sensor_waterLevel(pin: AnalogPin): number {
+
+        return pins.analogReadPin(pin)
+        
+    }
+    	    
+
+
+
+
+    
+
+    /**
+     * 土壤湿度传感器
+     */
+    
+    //% blockId=sensor_soilMoisture block="sensor_soilMoisture pin |analogpin %pin" blockExternalInputs=false  group="土壤湿度传感器"
+    //% weight=70
+    export function sensor_soilMoisture(pin: AnalogPin): number {
+
+        return pins.analogReadPin(pin)
+        
+    }
 	
 	
 	
