@@ -16,14 +16,16 @@
     "sensors.sensor_waterLevel|block": "水位传感器 |模拟值读取引脚 %pin",
 
     "sensors.sensor_soilMoisture|block": "土壤湿度传感器 |模拟值读取引脚 %pin",
+
+    "sensors.sensor_grayLevel|block": "灰度传感器 |模拟值读取引脚 %pin",
 	
 	"sensors.sensor_sound_pin|block": "声音传感器初始化 |数字读取引脚 %DR|模拟读取引脚 %AR",
-	"sensors.sensor_sound_analogread|block": "读取到的模拟值",
-	"sensors.sensor_sound_digitalread|block": "读取到的数字值",
+	"sensors.sensor_sound_analogread|block": "声音传感器|读取到的模拟值",
+	"sensors.sensor_sound_digitalread|block": "声音传感器|读取到的数字值",
 	
 	"sensors.sensor_rain_pin|block": "雨滴传感器初始化 |数字读取引脚 %DR|模拟读取引脚 %AR",
-	"sensors.sensor_rain_analogread|block": "读取到的模拟值",
-	"sensors.sensor_rain_digitalread|block": "读取到的数字值",
+	"sensors.sensor_rain_analogread|block": "雨滴传感器|读取到的模拟值",
+    "sensors.sensor_rain_digitalread|block": "雨滴传感器|读取到的数字值",
 	
 	
 	
@@ -45,7 +47,13 @@
     "ColorEffect.Breathing|block": "呼吸灯",
     "ColorEffect.Rotate|block": "旋转流星",
     "ColorEffect.Flash|block": "闪烁",
-    "sensors.RUS_04|block": "选择彩灯 %index|选择颜色 %rgb|选择效果 %effect|选择引脚 %pin"
+    "sensors.RUS_04|block": "选择彩灯 %index|选择颜色 %rgb|选择效果 %effect|选择引脚 %pin",
+
+
+    "DHT11Type.DHT11_humidity|block": "湿度(0~100)",
+    "DHT11Type.DHT11_temperature_C|block": "摄氏温度(℃)",
+
+    "sensors.dht11value|block": "温湿度传感器的 %dht11type|值 引脚 %dht11pin"
 	
 
 }

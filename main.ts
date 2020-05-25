@@ -41,6 +41,13 @@ Rotate = 0x02,
 Flash = 0x03
 }
 
+enum DHT11Type {
+	//% block="temperature(℃)" 
+	DHT11_temperature_C=0,
+	//% block="humidity(0~100)"
+	DHT11_humidity=1,
+}
+
 
 //% color="#FFA500" weight=10 icon="\uf2c9" block="sensors"
 namespace sensors {
@@ -189,6 +196,28 @@ namespace sensors {
 
         return pins.analogReadPin(pin)
         
+	}
+	    	    
+
+
+
+		    	    
+
+
+
+
+    
+
+    /**
+     * 灰度传感器
+     */
+    
+    //% blockId=sensor_grayLevel block="sensor_grayLevel pin |analogpin %pin" blockExternalInputs=false  group="灰度传感器"
+    //% weight=70
+    export function sensor_grayLevel(pin: AnalogPin): number {
+
+        return pins.analogReadPin(pin)
+        
     }
 	    	    
 
@@ -212,7 +241,7 @@ namespace sensors {
         _AR = AR
     }
 
-    //% blockId=sensor_sound_analogread  block="sensor_sound_analogread"  blockExternalInputs=false  group="声音传感器"
+    //% blockId=sensor_sound_analogread  block="sensor_sound_analogread|value"  blockExternalInputs=false  group="声音传感器"
     //% weight=70
     export function sensor_sound_analogread(): number {
 
@@ -220,7 +249,7 @@ namespace sensors {
 
     }
 	
-	//% blockId=sensor_sound_digitalread  block="sensor_sound_digitalread"  blockExternalInputs=false  group="声音传感器"
+	//% blockId=sensor_sound_digitalread  block="sensor_sound_digitalread|value"  blockExternalInputs=false  group="声音传感器"
     //% weight=70
     export function sensor_sound_digitalread(): number {
 
@@ -252,7 +281,7 @@ namespace sensors {
         _ARS = ARS
     }
 
-    //% blockId=sensor_rain_analogread  block="sensor_rain_analogread"  blockExternalInputs=false  group="雨滴传感器"
+    //% blockId=sensor_rain_analogread  block="sensor_rain_analogread|value"  blockExternalInputs=false  group="雨滴传感器"
     //% weight=70
     export function sensor_rain_analogread(): number {
 
@@ -260,7 +289,7 @@ namespace sensors {
 
     }
 	
-	//% blockId=sensor_rain_digitalread  block="sensor_rain_digitalread"  blockExternalInputs=false  group="雨滴传感器"
+	//% blockId=sensor_rain_digitalread  block="sensor_rain_digitalread|value"  blockExternalInputs=false  group="雨滴传感器"
     //% weight=70
     export function sensor_rain_digitalread(): number {
 
@@ -423,6 +452,74 @@ namespace sensors {
 	}
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+	/**
+	 * 温湿度传感器 
+	 */
+
+	//% blockId="readdht11" block="value of dht11 %dht11type| at pin %dht11pin"  group="温湿度传感器"
+	export function dht11value(dht11type: DHT11Type, dht11pin: DigitalPin): number {
+
+		pins.digitalWritePin(dht11pin, 0)
+		basic.pause(18)
+		let i = pins.digitalReadPin(dht11pin)
+		pins.setPull(dht11pin, PinPullMode.PullUp);
+		switch (dht11type) {
+			case 0:
+				let dhtvalue1 = 0;
+				let dhtcounter1 = 0;
+				while (pins.digitalReadPin(dht11pin) == 1);
+				while (pins.digitalReadPin(dht11pin) == 0);
+				while (pins.digitalReadPin(dht11pin) == 1);
+				for (let i = 0; i <= 32 - 1; i++) {
+					while (pins.digitalReadPin(dht11pin) == 0);
+					dhtcounter1 = 0
+					while (pins.digitalReadPin(dht11pin) == 1) {
+						dhtcounter1 += 1;
+					}
+					if (i > 15) {
+						if (dhtcounter1 > 2) {
+							dhtvalue1 = dhtvalue1 + (1 << (31 - i));
+						}
+					}
+				}
+				return ((dhtvalue1 & 0x0000ff00) >> 8);
+				break;
+
+			case 1:
+				while (pins.digitalReadPin(dht11pin) == 1);
+				while (pins.digitalReadPin(dht11pin) == 0);
+				while (pins.digitalReadPin(dht11pin) == 1);
+
+				let value = 0;
+				let counter = 0;
+
+				for (let i = 0; i <= 8 - 1; i++) {
+					while (pins.digitalReadPin(dht11pin) == 0);
+					counter = 0
+					while (pins.digitalReadPin(dht11pin) == 1) {
+						counter += 1;
+					}
+					if (counter > 3) {
+						value = value + (1 << (7 - i));
+					}
+				}
+				return value;
+			default:
+				return 0;
+		}
+	}
 
 
 }
