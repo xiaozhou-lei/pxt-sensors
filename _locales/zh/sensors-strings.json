@@ -16,6 +16,8 @@
     "sensors.sensor_waterLevel|block": "水位传感器 |模拟值读取引脚 %pin",
 
     "sensors.sensor_soilMoisture|block": "土壤湿度传感器 |模拟值读取引脚 %pin",
+	
+	"sensors.sensor_obstacleAvoid|block": "避障传感器 |模拟值读取引脚 %pin",
 
     "sensors.sensor_grayLevel|block": "灰度传感器 |模拟值读取引脚 %pin",
 	

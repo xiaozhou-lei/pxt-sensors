@@ -197,6 +197,24 @@ namespace sensors {
         return pins.analogReadPin(pin)
         
 	}
+	   	    
+
+
+
+
+    
+
+    /**
+     * 避障传感器
+     */
+    
+    //% blockId=sensor_obstacleAvoid block="sensor_obstacleAvoid pin |analogpin %pin" blockExternalInputs=false  group="避障传感器"
+    //% weight=70
+    export function sensor_obstacleAvoid(pin: AnalogPin): number {
+
+        return pins.analogReadPin(pin)
+        
+	}
 	    	    
 
 
