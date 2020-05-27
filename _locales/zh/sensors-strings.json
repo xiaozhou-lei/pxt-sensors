@@ -17,17 +17,27 @@
 
     "sensors.sensor_soilMoisture|block": "土壤湿度传感器 |模拟读取引脚 %pin",
 	
-	"sensors.sensor_obstacleAvoid|block": "避障传感器 |数字读取引脚 %pin",
+    "sensors.sensor_obstacleAvoid|block": "避障传感器 |数字读取引脚 %pin",
+    
+    "sensors.sensor_reedSwitch|block": "磁簧开关传感器 |数字读取引脚 %pin",
+
+    "sensors.sensor_humanBody|block": "人体热释电传感器 |数字读取引脚 %pin",
+
+    "sensors.sensor_quake|block": "震动传感器 |数字读取引脚 %pin",
 
     "sensors.sensor_grayLevel|block": "灰度传感器 |模拟读取引脚 %pin",
 	
-	"sensors.sensor_sound_pin|block": "声音传感器初始化 |数字读取引脚 %DR|模拟读取引脚 %AR",
+	"sensors.sensor_sound_pin|block": "声音传感器初始化 |数字读取引脚 %DS|模拟读取引脚 %AS",
 	"sensors.sensor_sound_analogread|block": "声音传感器|读取到的模拟值",
 	"sensors.sensor_sound_digitalread|block": "声音传感器|读取到的数字值",
 	
 	"sensors.sensor_rain_pin|block": "雨滴传感器初始化 |数字读取引脚 %DR|模拟读取引脚 %AR",
 	"sensors.sensor_rain_analogread|block": "雨滴传感器|读取到的模拟值",
     "sensors.sensor_rain_digitalread|block": "雨滴传感器|读取到的数字值",
+
+    "sensors.sensor_gas_pin|block": "气体传感器初始化 |数字读取引脚 %DG|模拟读取引脚 %AG",
+	"sensors.sensor_gas_analogread|block": "气体传感器|读取到的模拟值",
+    "sensors.sensor_gas_digitalread|block": "气体传感器|读取到的数字值",
 	
 	
 	

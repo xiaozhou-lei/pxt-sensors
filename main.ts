@@ -215,6 +215,62 @@ namespace sensors {
         return pins.digitalReadPin(pin)
         
 	}
+		   	    
+
+
+
+
+
+
+    
+
+    /**
+     * 磁簧开关传感器
+     */
+    
+    //% blockId=sensor_reedSwitch block="sensor_reedSwitch pin |digitalpin %pin" blockExternalInputs=false  group="磁簧开关传感器"
+    //% weight=70
+    export function sensor_reedSwitch(pin: DigitalPin): number {
+
+        return pins.digitalReadPin(pin)
+        
+	}
+			   	    
+
+
+
+
+    
+
+    /**
+     * 人体热释电传感器
+     */
+    
+    //% blockId=sensor_humanBody block="sensor_humanBody pin |digitalpin %pin" blockExternalInputs=false  group="人体热释电传感器"
+    //% weight=70
+    export function sensor_humanBody(pin: DigitalPin): number {
+
+        return pins.digitalReadPin(pin)
+        
+	}
+				   	    
+
+
+
+
+    
+
+    /**
+     * 震动传感器
+     */
+    
+    //% blockId=sensor_quake block="sensor_quake pin |digitalpin %pin" blockExternalInputs=false  group="震动传感器"
+    //% weight=70
+    export function sensor_quake(pin: DigitalPin): number {
+
+        return pins.digitalReadPin(pin)
+        
+	}
 	    	    
 
 
@@ -248,22 +304,22 @@ namespace sensors {
      * 声音传感器
      */
     
-    let _DR = 0
-    let _AR = 0
+    let _DS = 0
+    let _AS = 0
     
-    //% blockId=sensor_sound_pin block="sensor_sound_pin |digital pin %DR|analog pin %AR" blockExternalInputs=false  group="声音传感器"
+    //% blockId=sensor_sound_pin block="sensor_sound_pin |digital pin %DS|analog pin %AS" blockExternalInputs=false  group="声音传感器"
     //% weight=70
-    export function sensor_sound_pin(DR: DigitalPin, AR: AnalogPin): void {
+    export function sensor_sound_pin(DS: DigitalPin, AS: AnalogPin): void {
         
-        _DR = DR
-        _AR = AR
+        _DS = DS
+        _AS = AS
     }
 
     //% blockId=sensor_sound_analogread  block="sensor_sound_analogread|value"  blockExternalInputs=false  group="声音传感器"
     //% weight=70
     export function sensor_sound_analogread(): number {
 
-            return pins.analogReadPin(_AR)
+            return pins.analogReadPin(_AS)
 
     }
 	
@@ -271,7 +327,7 @@ namespace sensors {
     //% weight=70
     export function sensor_sound_digitalread(): number {
 
-            return pins.digitalReadPin(_DR)
+            return pins.digitalReadPin(_DS)
 
     }
 	
@@ -288,22 +344,22 @@ namespace sensors {
      * 雨滴传感器
      */
     
-    let _DRS = 0
-    let _ARS = 0
+    let _DR = 0
+    let _AR = 0
     
-    //% blockId=sensor_rain_pin block="sensor_rain_pin |digital pin %DRS|analog pin %ARS" blockExternalInputs=false  group="雨滴传感器"
+    //% blockId=sensor_rain_pin block="sensor_rain_pin |digital pin %DR|analog pin %AR" blockExternalInputs=false  group="雨滴传感器"
     //% weight=70
-    export function sensor_rain_pin(DRS: DigitalPin, ARS: AnalogPin): void {
+    export function sensor_rain_pin(DR: DigitalPin, AR: AnalogPin): void {
         
-        _DRS = DRS
-        _ARS = ARS
+        _DR = DR
+        _AR = AR
     }
 
     //% blockId=sensor_rain_analogread  block="sensor_rain_analogread|value"  blockExternalInputs=false  group="雨滴传感器"
     //% weight=70
     export function sensor_rain_analogread(): number {
 
-            return pins.analogReadPin(_ARS)
+            return pins.analogReadPin(_AR)
 
     }
 	
@@ -311,12 +367,63 @@ namespace sensors {
     //% weight=70
     export function sensor_rain_digitalread(): number {
 
-            return pins.digitalReadPin(_DRS)
+            return pins.digitalReadPin(_DR)
+
+	}
+		
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	/**
+     * 气体传感器
+     */
+    
+    let _DG = 0
+    let _AG = 0
+    
+    //% blockId=sensor_gas_pin block="sensor_gas_pin |digital pin %DG|analog pin %AG" blockExternalInputs=false  group="气体传感器"
+    //% weight=70
+    export function sensor_gas_pin(DG: DigitalPin, AG: AnalogPin): void {
+        
+        _DG = DG
+        _AG = AG
+    }
+
+    //% blockId=sensor_gas_analogread  block="sensor_gas_analogread|value"  blockExternalInputs=false  group="气体传感器"
+    //% weight=70
+    export function sensor_gas_analogread(): number {
+
+            return pins.analogReadPin(_AG)
+
+    }
+	
+	//% blockId=sensor_gas_digitalread  block="sensor_gas_digitalread|value"  blockExternalInputs=false  group="气体传感器"
+    //% weight=70
+    export function sensor_gas_digitalread(): number {
+
+            return pins.digitalReadPin(_DG)
 
     }
 	
 	
 	
+
+
+
+
+
+
+
+
+
+
+
 	
 	
 	
