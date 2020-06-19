@@ -366,10 +366,13 @@ namespace sensors {
 	//% blockId=sensor_rain_digitalread  block="sensor_rain_digitalread|value"  blockExternalInputs=false  group="雨滴传感器"
     //% weight=70
     export function sensor_rain_digitalread(): number {
-
-            return pins.digitalReadPin(_DR)
-
+      pins.digitalWritePin(_DR, 0)
+     if (pins.digitalReadPin(_DR) == 1) {
+	    return true;
+	}else {
+	    return false;
 	}
+   }
 		
 	
 	
