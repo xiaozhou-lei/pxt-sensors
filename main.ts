@@ -452,14 +452,57 @@ namespace sensors {
     }
 	
 	
+		export enum SonarVersion {
+	V1 = 0x1,
+	V2 = 0x2
+	}
 	
+	let initialized = false
+// 	let neoStrip: neopixel.Strip;
+	let matBuf = pins.createBuffer(17);
+	let distanceBuf = 0;
 
 
 
 
+	/**
+	 * Get RUS04 distance
+	 * @param pin Microbit ultrasonic pin; eg: P2
+	*/
+	//% blockId=motorbit_ultrasonic block="Read RgbUltrasonic Distance|pin %pin|cm"  group="RGB超声波"
+	//% weight=76
+	export function Ultrasonic(pin: DigitalPin): number {
+		return UltrasonicVer(pin, SonarVersion.V1);
+	}
 
+	
+	function UltrasonicVer(pin: DigitalPin, v: SonarVersion): number {
 
+		// send pulse
+		if (v == SonarVersion.V1) {
+			pins.setPull(pin, PinPullMode.PullNone);
+		}
+		else { pins.setPull(pin, PinPullMode.PullDown); }
+		pins.digitalWritePin(pin, 0);
+		control.waitMicros(2);
+		pins.digitalWritePin(pin, 1);
+		control.waitMicros(50);
+		pins.digitalWritePin(pin, 0);
 
+		// read pulse
+		let d = pins.pulseIn(pin, PulseValue.High, 25000);
+		let ret = d;
+		// filter timeout spikes
+		if (ret == 0 && distanceBuf != 0) {
+			ret = distanceBuf;
+		}
+		distanceBuf = d;
+		if (v == SonarVersion.V1) {
+			return Math.floor(ret * 9 / 6 / 58);
+		}
+		return Math.floor(ret / 40 + (ret / 800));
+		// Correction
+	}
 
 
 
@@ -491,15 +534,7 @@ namespace sensors {
 // 	let distanceBuf = 0;
 	
 	
-// 	/**
-// 	 * Get RUS04 distance
-// 	 * @param pin Microbit ultrasonic pin; eg: P2
-// 	*/
-// 	//% blockId=motorbit_ultrasonic block="Read RgbUltrasonic Distance|pin %pin|cm"  group="RGB超声波"
-// 	//% weight=76
-// 	export function Ultrasonic(pin: DigitalPin): number {
-// 		return UltrasonicVer(pin, SonarVersion.V1);
-// 	}
+
 
 // 	function UltrasonicVer(pin: DigitalPin, v: SonarVersion): number {
 
@@ -629,62 +664,62 @@ namespace sensors {
 
 
 
-// 	/**
-// 	 * 温湿度传感器 
-// 	 */
+	/**
+	 * 温湿度传感器 
+	 */
 
-// 	//% blockId="readdht11" block="value of dht11 %dht11type| at pin %dht11pin"  group="温湿度传感器"
-// 	export function dht11value(dht11type: DHT11Type, dht11pin: DigitalPin): number {
+	//% blockId="readdht11" block="value of dht11 %dht11type| at pin %dht11pin"  group="温湿度传感器"
+	export function dht11value(dht11type: DHT11Type, dht11pin: DigitalPin): number {
 
-// 		pins.digitalWritePin(dht11pin, 0)
-// 		basic.pause(18)
-// 		let i = pins.digitalReadPin(dht11pin)
-// 		pins.setPull(dht11pin, PinPullMode.PullUp);
-// 		switch (dht11type) {
-// 			case 0:
-// 				let dhtvalue1 = 0;
-// 				let dhtcounter1 = 0;
-// 				while (pins.digitalReadPin(dht11pin) == 1);
-// 				while (pins.digitalReadPin(dht11pin) == 0);
-// 				while (pins.digitalReadPin(dht11pin) == 1);
-// 				for (let i = 0; i <= 32 - 1; i++) {
-// 					while (pins.digitalReadPin(dht11pin) == 0);
-// 					dhtcounter1 = 0
-// 					while (pins.digitalReadPin(dht11pin) == 1) {
-// 						dhtcounter1 += 1;
-// 					}
-// 					if (i > 15) {
-// 						if (dhtcounter1 > 2) {
-// 							dhtvalue1 = dhtvalue1 + (1 << (31 - i));
-// 						}
-// 					}
-// 				}
-// 				return ((dhtvalue1 & 0x0000ff00) >> 8);
-// 				break;
+		pins.digitalWritePin(dht11pin, 0)
+		basic.pause(18)
+		let i = pins.digitalReadPin(dht11pin)
+		pins.setPull(dht11pin, PinPullMode.PullUp);
+		switch (dht11type) {
+			case 0:
+				let dhtvalue1 = 0;
+				let dhtcounter1 = 0;
+				while (pins.digitalReadPin(dht11pin) == 1);
+				while (pins.digitalReadPin(dht11pin) == 0);
+				while (pins.digitalReadPin(dht11pin) == 1);
+				for (let i = 0; i <= 32 - 1; i++) {
+					while (pins.digitalReadPin(dht11pin) == 0);
+					dhtcounter1 = 0
+					while (pins.digitalReadPin(dht11pin) == 1) {
+						dhtcounter1 += 1;
+					}
+					if (i > 15) {
+						if (dhtcounter1 > 2) {
+							dhtvalue1 = dhtvalue1 + (1 << (31 - i));
+						}
+					}
+				}
+				return ((dhtvalue1 & 0x0000ff00) >> 8);
+				break;
 
-// 			case 1:
-// 				while (pins.digitalReadPin(dht11pin) == 1);
-// 				while (pins.digitalReadPin(dht11pin) == 0);
-// 				while (pins.digitalReadPin(dht11pin) == 1);
+			case 1:
+				while (pins.digitalReadPin(dht11pin) == 1);
+				while (pins.digitalReadPin(dht11pin) == 0);
+				while (pins.digitalReadPin(dht11pin) == 1);
 
-// 				let value = 0;
-// 				let counter = 0;
+				let value = 0;
+				let counter = 0;
 
-// 				for (let i = 0; i <= 8 - 1; i++) {
-// 					while (pins.digitalReadPin(dht11pin) == 0);
-// 					counter = 0
-// 					while (pins.digitalReadPin(dht11pin) == 1) {
-// 						counter += 1;
-// 					}
-// 					if (counter > 3) {
-// 						value = value + (1 << (7 - i));
-// 					}
-// 				}
-// 				return value;
-// 			default:
-// 				return 0;
-// 		}
-// 	}
+				for (let i = 0; i <= 8 - 1; i++) {
+					while (pins.digitalReadPin(dht11pin) == 0);
+					counter = 0
+					while (pins.digitalReadPin(dht11pin) == 1) {
+						counter += 1;
+					}
+					if (counter > 3) {
+						value = value + (1 << (7 - i));
+					}
+				}
+				return value;
+			default:
+				return 0;
+		}
+	}
 
 
 }
